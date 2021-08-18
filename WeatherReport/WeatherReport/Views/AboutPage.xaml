@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeatherReport.Views.AboutPage"
+             xmlns:vm="clr-namespace:WeatherReport.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Left" Command="{Binding SwipeCommand}" CommandParameter="Left" />
+        </Grid.GestureRecognizers>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <Image 
+           Grid.Row="0" 
+           Source="{Binding Image}"
+           x:Name="WD"
+           Grid.Column="0"
+           IsAnimationPlaying="True"
+           HorizontalOptions="FillAndExpand"
+           VerticalOptions="FillAndExpand" 
+           Aspect="Fill"
+            InputTransparent="true"/>
+        <ScrollView Grid.Row="0">
+
+
+            <StackLayout  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+
+
+
+                <Entry x:Name="WeatherSearch" Placeholder="{Binding Placeholder}" ReturnType="Search" Text="{Binding Search}" ReturnCommand="{Binding GrabWeather}"/>
+                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding Temperature}" FontSize="72"/>
+                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding Description}" VerticalTextAlignment="Center" FontSize="24" Padding="0,0,0,0"/>
+                <Label FontSize="16" Padding="0,24,0,0">
+
+                </Label>
+
+            </StackLayout>
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>
