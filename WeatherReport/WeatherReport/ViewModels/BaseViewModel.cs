@@ -47,6 +47,72 @@ namespace WeatherReport.ViewModels
             set { SetProperty(ref placeholder, value); }
         }
 
+        string cityName;
+        public string CityName
+        {
+            get { return cityName; }
+            set { SetProperty(ref cityName, value); }
+        }
+
+        string future1;
+        public string Future1
+        {
+            get { return future1; }
+            set { SetProperty(ref future1, value); }
+        }
+
+        string futureTemp1;
+        public string FutureTemp1
+        {
+            get { return futureTemp1; }
+            set { SetProperty(ref futureTemp1, value); }
+        }
+
+        string future2;
+        public string Future2
+        {
+            get { return future2; }
+            set { SetProperty(ref future2, value); }
+        }
+
+        string futureTemp2;
+        public string FutureTemp2
+        {
+            get { return futureTemp2; }
+            set { SetProperty(ref futureTemp2, value); }
+        }
+
+        string future3;
+        public string Future3
+        {
+            get { return future3; }
+            set { SetProperty(ref future3, value); }
+        }
+
+        string futureTemp3;
+        public string FutureTemp3
+        {
+            get { return futureTemp3; }
+            set { SetProperty(ref futureTemp3, value); }
+        }
+
+        string future4;
+        public string Future4
+        {
+            get { return future4; }
+            set { SetProperty(ref future4, value); }
+        }
+
+        string futureTemp4;
+        public string FutureTemp4
+        {
+            get { return futureTemp4; }
+            set { SetProperty(ref futureTemp4, value); }
+        }
+
+
+
+
         string description;
         public string Description
         {

@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherReport.Views.AboutPage"
              xmlns:vm="clr-namespace:WeatherReport.ViewModels"
-             Title="{Binding Title}">
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
+             Shell.FlyoutItemIsVisible="False"
+             >
 
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
@@ -12,43 +15,75 @@
     <Grid>
 
 
-        <Grid.GestureRecognizers>
-            <SwipeGestureRecognizer Direction="Left" Command="{Binding SwipeCommand}" CommandParameter="Left" />
-        </Grid.GestureRecognizers>
+        
 
 
-        <Grid.RowDefinitions>
+        <Grid.RowDefinitions> 
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-
+        <Image 
+            
+            Source="Important.jpg" 
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" 
+            Aspect="Fill"
+               />
         <Image 
            Grid.Row="0" 
            Source="{Binding Image}"
            x:Name="WD"
            Grid.Column="0"
            IsAnimationPlaying="True"
-           HorizontalOptions="FillAndExpand"
-           VerticalOptions="FillAndExpand" 
+           HorizontalOptions="Center"
+           VerticalOptions="Center" 
            Aspect="Fill"
             InputTransparent="true"/>
         <ScrollView Grid.Row="0">
-
-
+            
             <StackLayout  Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
 
 
 
-                <Entry x:Name="WeatherSearch" Placeholder="{Binding Placeholder}" ReturnType="Search" Text="{Binding Search}" ReturnCommand="{Binding GrabWeather}"/>
-                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding Temperature}" FontSize="72"/>
-                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding Description}" VerticalTextAlignment="Center" FontSize="24" Padding="0,0,0,0"/>
-                <Label FontSize="16" Padding="0,24,0,0">
 
-                </Label>
+
+                <Entry x:Name="WeatherSearch" Placeholder="{Binding Placeholder}" ReturnType="Search" Text="{Binding Search}" ReturnCommand="{Binding GrabWeather}"/>
+                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding CityName}" FontSize="32"/>
+                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding Temperature}" FontSize="72"/>
+                <Label InputTransparent="true" HorizontalTextAlignment="Center" Text="{Binding Description}" FontSize="24" Padding="0,0,0,0"/>
+
+                <StackLayout HorizontalOptions="CenterAndExpand"  Spacing="15" Orientation="Vertical">
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label InputTransparent="true" HorizontalTextAlignment="Start" Text="{Binding Future1}" FontSize="16" Padding="0,120,40,0"/>
+                        <Label InputTransparent="true" HorizontalTextAlignment="End" Text="{Binding FutureTemp1}" FontSize="16" Padding="80,120,0,0"/>
+                    </StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label InputTransparent="true" HorizontalTextAlignment="Start" Text="{Binding Future2}" FontSize="16" Padding="0,0,40,0"/>
+                        <Label InputTransparent="true" HorizontalTextAlignment="End" Text="{Binding FutureTemp2}" FontSize="16" Padding="80,0,0,0"/>
+                    </StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label InputTransparent="true" HorizontalTextAlignment="Start" Text="{Binding Future3}" FontSize="16" Padding="0,0,40,0"/>
+                        <Label InputTransparent="true" HorizontalTextAlignment="End" Text="{Binding FutureTemp3}" FontSize="16" Padding="80,0,0,0"/>
+                    </StackLayout>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label InputTransparent="true" HorizontalTextAlignment="Start" Text="{Binding Future4}" FontSize="16" Padding="0,0,40,0"/>
+                        <Label InputTransparent="true" HorizontalTextAlignment="End" Text="{Binding FutureTemp4}" FontSize="16" Padding="80,0,0,0"/>
+                    </StackLayout>
+                    
+                </StackLayout>
 
             </StackLayout>
+            
         </ScrollView>
 
+
+                <Grid.GestureRecognizers Grid.Row="1">
+                    <SwipeGestureRecognizer Direction="Left" Command="{Binding SwipeCommand}" CommandParameter="Left" />
+                </Grid.GestureRecognizers>
     </Grid>
 
 </ContentPage>
